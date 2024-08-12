@@ -7,7 +7,8 @@ const props = defineProps<{
     defaultValue?: string | number;
     modelValue?: string | number;
     class?: HTMLAttributes["class"];
-    password?: boolean;
+    darkMode?: boolean;
+    placeHolder?: string;
 }>();
 
 const emits = defineEmits<{
@@ -32,6 +33,7 @@ const showPassword = ref(false);
                     props.class
                 )
             "
+            :placeholder="props.placeHolder"
         />
     </div>
 </template>

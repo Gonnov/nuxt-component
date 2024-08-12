@@ -6,7 +6,11 @@ let props = defineProps({
         type: String,
         default: "",
     },
+    darkMode: Boolean,
 });
+let darkModeColor = props.darkMode
+    ? "bg-stone-600 border-stone-500"
+    : "bg-white";
 let type = "text";
 if (props.placeHolder === "password") {
     type = "password";
@@ -19,10 +23,18 @@ if (props.placeHolder === "password") {
             <FormLabel></FormLabel>
             <FormControl>
                 <div v-if="type === 'password'">
-                    <InputPassword v-bind="componentField" />
+                    <InputPassword
+                        v-bind="componentField"
+                        :class="darkModeColor"
+                        placeholder="password"
+                    />
                 </div>
                 <div v-else>
-                    <Input v-bind="componentField" />
+                    <Input
+                        v-bind="componentField"
+                        :class="darkModeColor"
+                        place-holder="email"
+                    />
                 </div>
             </FormControl>
             <FormMessage />

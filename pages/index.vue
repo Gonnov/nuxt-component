@@ -1,9 +1,9 @@
 <script setup lang="ts">
-let darkMode = ref(false);
+let darkMode = ref(true);
 </script>
 
 <template class="">
-    <div class="flex items-center justify-center min-h-screen bg-zinc-800">
-        <Login />
+    <div class="flex items-center justify-center min-h-screen bg-slate-800">
+        <Login :dark-mode="darkMode" />
     </div>
 </template>
