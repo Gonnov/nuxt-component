@@ -9,6 +9,7 @@ const props = defineProps<{
     modelValue?: string | number;
     class?: HTMLAttributes["class"];
     darkMode?: boolean;
+    placeHolder?: string;
 }>();
 
 const emits = defineEmits<{
@@ -20,6 +21,10 @@ const modelValue = useVModel(props, "modelValue", emits, {
     defaultValue: props.defaultValue,
 });
 
+let placeHolder = props.placeHolder;
+if (placeHolder == undefined) {
+    placeHolder = "password";
+}
 const showPassword = ref(false);
 </script>
 
@@ -34,7 +39,7 @@ const showPassword = ref(false);
                 )
             "
             :type="showPassword ? 'text' : 'password'"
-            placeholder="password"
+            :placeholder="placeHolder"
         />
         <div v-if="showPassword === false">
             <Icon

@@ -18,7 +18,9 @@ let darkModeColor = props.darkMode
 const formSchema = toTypedSchema(
     z.object({
         username: z.string().min(2).max(50),
-        password: z.string().min(2).max(50),
+        email: z.string().min(2).max(50),
+        password1: z.string().min(2).max(50),
+        password2: z.string().min(2).max(50),
     })
 );
 
@@ -37,15 +39,23 @@ const onSubmit = handleSubmit((values) => {
         @submit="onSubmit"
     >
         <div>
-            <LoginFormField
+            <RegisterFormField
                 place-holder="username"
                 :dark-mode="props.darkMode"
-            ></LoginFormField>
-            <LoginFormField
+            ></RegisterFormField>
+            <RegisterFormField
+                place-holder="mail"
+                :dark-mode="props.darkMode"
+            ></RegisterFormField>
+            <RegisterFormField
                 place-holder="password"
                 :dark-mode="props.darkMode"
-            ></LoginFormField>
-            <Button type="submit" :class="darkModeColor"> Login </Button>
+            ></RegisterFormField>
+            <RegisterFormField
+                place-holder="confirm password"
+                :dark-mode="props.darkMode"
+            ></RegisterFormField>
+            <Button type="submit" :class="darkModeColor"> Register </Button>
         </div>
     </form>
 </template>

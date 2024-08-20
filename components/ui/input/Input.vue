@@ -21,6 +21,7 @@ const modelValue = useVModel(props, "modelValue", emits, {
 });
 
 const showPassword = ref(false);
+console.log(props.placeHolder);
 </script>
 
 <template>
